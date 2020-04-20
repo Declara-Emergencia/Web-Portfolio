@@ -1,20 +1,33 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" routerLink="/login">Login</a>
-    <a class="nav-item nav-link" routerLink="/register">Register</a>
-    <a class="nav-item nav-link" routerLink="/profile">Profile</a>
-  </div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- main content container -->
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <router-outlet></router-outlet>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<section class="hero has-background-light" style="max-height: 100px;">
+  <div class="hero-body">
+    <div class="container">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="navbar-brand">
+          <a class="nav-item nav-link" routerLink="/">Home</a>
+          <a class="nav-item nav-link" routerLink="/login">Login</a>
+          <a class="nav-item nav-link" routerLink="/register">Register</a>
+          <a class="nav-item nav-link" routerLink="/profile">Profile</a>
+        </div>
+      </nav>
     </div>
   </div>
-</div>
+</section>
+
+<router-outlet></router-outlet>
+
