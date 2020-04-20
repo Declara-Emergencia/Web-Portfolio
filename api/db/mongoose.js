@@ -9,8 +9,8 @@ mongoose.connect('mongodb://localhost:27017/WebPortifolio', {useNewUrlParser: tr
 });
 
 // Prevent deprecation warnings
-mongoose.set('UseCreateIndex', true);
-mongoose.set('useFindAndModufy', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
 module.exports = {
     mongoose
