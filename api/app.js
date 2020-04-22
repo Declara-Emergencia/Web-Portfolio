@@ -23,6 +23,17 @@ app.get('/users', (req, res) => {
 });
 
 /**
+ * GET /users/:id
+ * Purpose: Get all users
+ */
+app.get('/users/:id', (req, res) => {
+	// Return an array of all the users in the database
+	User.findById(req.params.id).then((user) => {
+		res.send(user);
+	});
+});
+
+/**
  * POST /users
  * Purpose: Create an user
  */
@@ -64,7 +75,7 @@ app.delete('/users/:id', (req,res) =>{
 	}).then((removedUserDoc) => {
 		res.send(removedUserDoc);
 	});
-});
+}); // Does not delete assigned projects...
 
 /**
  * GET /users/:userID/projects
@@ -80,17 +91,14 @@ app.get('/users/:userId/projects', (req, res) => {
 });
 
 /**
- * GET /users/:userId/projects/:projectId
- * Purpose: Get a specific project from a specific user
+ * GET /projects/:projectId
+ * Purpose: Get a specific project
  */
-app.get('/users/:userId/projects/:projectId', (req, res) => {
-	Project.findOne({
-		_id: req.params.projectId,
-		_userId: req.params.userId
-	}).then((project) => {
+app.get('/projects/:projectId', (req, res) => {
+	Project.findById(req.params.projectId).then((project) => {
 		res.send(project);
 	});
-});
+}); // Not using userId parameter...
 
 /**
  * POST /users/:userId/projects
@@ -112,14 +120,13 @@ app.post('/users/:userId/projects', (req, res) => {
 });
 
 /**
- * PATCH /users/:userId/projects/:projectId
+ * PATCH /projects/:projectId
  * Purpose: Update an existing project
  */
-app.patch('/users/:userId/projects/:projectId', (req, res) => {
+app.patch('/projects/:projectId', (req, res) => {
 	// Update an existing project specified by projectId
 	Project.findOneAndUpdate({
 		_id: req.params.projectId,
-		_userId: req.params.userId
 	}, {
 		$set: req.body
 	}).then(() => {
@@ -128,13 +135,12 @@ app.patch('/users/:userId/projects/:projectId', (req, res) => {
 });
 
 /**
- * DELETE /users/:userId/projects/:projectId
+ * DELETE /projects/:projectId
  * Purpose: Delete a specified project
  */
-app.delete('/users/:userId/projects/:projectId', (req, res) => {
+app.delete('/projects/:projectId', (req, res) => {
 	Project.findOneAndRemove({
 		_id: req.params.projectId,
-		_userId: req.params.userId
 	}).then((removedProjectDoc) => {
 		res.send(removedProjectDoc);
 	});
