@@ -83,7 +83,7 @@ app.get('/users/:userId/projects', (req, res) => {
  * GET /users/:userId/projects/:projectId
  * Purpose: Get a specific project from a specific user
  */
-app.delete('/users/:userId/projects/:projectId', (req, res) => {
+app.get('/users/:userId/projects/:projectId', (req, res) => {
 	Project.findOne({
 		_id: req.params.projectId,
 		_userId: req.params.userId
