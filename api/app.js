@@ -24,7 +24,7 @@ app.get('/users', (req, res) => {
 
 /**
  * GET /users/:id
- * Purpose: Get all users
+ * Purpose: Get a specified user users
  */
 app.get('/users/:id', (req, res) => {
 	// Return an array of all the users in the database
