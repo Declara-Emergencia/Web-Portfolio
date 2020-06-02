@@ -4,50 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    
+    <style>
+        .is-horizontal-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
 <div class="pagesize">
+    
     <section class="section">
         <div class="container">
             <div class="columns">
 
                 <div class="column is-one-third">
                     <div class="notification">
-                        <div class="columns">
-                            <article>
-                                <figure class="image has-image" style="max-width: 128px;">
-                                    <img src="../../assets/pfp.png">
-                                </figure>
-                            </article>
-                            <article>
-                                <div class="lefttitlename">
-                                    <p class="title"><strong>Guilherme de Paula MacenaGuilherme de Paula MacenaGuilherme de Paula MacenaGuilherme de Paula Macena</strong></p> 
-                                </div>                                                                                  
-                                <div class="columns">
-                                    <article>
-                                        <div class="lefttitle">
-                                            <a class="image" style="max-width: 40px;" href="https://www.linkedin.com/" target="_blank">
-                                                <img src="../../assets/logoLinkedin.png">
-                                            </a> 
-                                        </div>                                                                         
-                                    </article>
-                                    <article>
-                                        <div class="lefttitle">
-                                            <a class="image" style="max-width: 40px;" href="https://github.com/Declara-Emergencia" target="_blank">
-                                                <img src="../../assets/logoGithub.png">
-                                            </a>
-                                        </div>                                
-                                    </article>
-                                    <article>
-                                        <div class="lefttitle">
-                                            <a class="image" style="max-width: 40px;" href="https://www.google.com/intl/pt/gmail/about/#" target="_blank">
-                                                <img src="../../assets/logoGmail.png">
-                                            </a>
-                                        </div>                                
-                                </article> 
+                        
+                        <div class="card-image has-text-centered">
+                            <figure class="image is-128x128 is-inline-block">
+                                <img class="is-rounded" src="../../assets/pfp.png" />
+                            </figure>
+                        </div>
+                        
+                        <p class="title has-text-centered ">*Nome Sobrenome*</p>
+
+                        <div class="card-image has-text-centered">
+                            <div class="columns is-inline-flex">
+                                <div class="column">
+                                    <a class="image is-48x48" href="https://www.linkedin.com/" target="_blank">
+                                        <img src="../../assets/logoLinkedin.png">
+                                    </a>
+                                </div>
+                                <div class="column">
+                                    <a class="image is-48x48" href="https://github.com/Declara-Emergencia" target="_blank">
+                                        <img src="../../assets/logoGithub.png">
+                                    </a>
+                                </div>
+                                <div class="column">
+                                    <a class="image is-48x48" href="https://www.google.com/intl/pt/gmail/about/#" target="_blank">
+                                        <img src="../../assets/logoGmail.png">
+                                    </a>
+                                </div>
                             </div>
-                </article> 
-                    </div>
+                        </div>
+                        
                         <hr class="has-background-grey-lighter">
                         <p class="subtitle is-4">Experiência:</p>
                         <div>
@@ -55,13 +58,13 @@
                             <div class="sideicon">
                                 <span><i class="fas fa-code"></i></span>
                                 <span><p>&nbsp;*HTML5, Sass, Angular*</p></span>
-                            </div>                              
+                            </div>
                             <br>
                             <p class="is-marginless subtitle is-5"><strong>Server-Side:</strong></p>
                             <div class="sideicon">
                                 <span><i class="fas fa-server"></i></span>
                                 <span><p>&nbsp;*NodeJS, ExpressJS*</p></span>
-                            </div> 
+                            </div>
                             <br>
                             <p class="is-marginless subtitle is-5"><strong>Database:</strong></p>
                             <div class="sideicon">
@@ -73,7 +76,7 @@
                             <div class="sideicon">
                                 <span><i class="fas fa-plus-square"></i></span>
                                 <span><p>&nbsp;*C#, Arduino, Python*</p></span>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,16 +97,16 @@
                                     magni repudiandae aliquam? Itaquedebitis est nisi qui! Sunt atque in aut inventore laboriosam
                                     facilis sapiente explicabo. Accusamus. lorem*</p>
                                 <br>
-                                <div class="columns">
+                                <div class="columns is-flex">
                                     <div class="column">
                                         <br>
                                         <p class="has-text-right"><i>Data do Projeto: *20/04/2020*</i></p>
                                     </div>
                                     <div class="column is-one-fifth">
                                         <figure class="image has-text-right">
-                                                <a class="image" style="max-width: 50px;" href="https://github.com/Declara-Emergencia/Web-Portfolio" target="_blank">
-                                                    <img src="../../assets/logoGithub.png">
-                                                </a>
+                                            <a class="image is-48x48" href="https://github.com/Declara-Emergencia/Web-Portfolio" target="_blank">
+                                                <img src="../../assets/logoGithub.png">
+                                            </a>
                                         </figure>
                                     </div>
                                 </div>
