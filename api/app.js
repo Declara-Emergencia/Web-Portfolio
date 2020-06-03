@@ -1,15 +1,15 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
-const {mongoose} = require('./db/mongoose');
+const {mongoose} = require('./db/mongoose')
 
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
 // Load mongoose models
-const { User, Project } = require('./db/models');
+const { User, Project } = require('./db/models')
 
 // Load middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 /**
  * GET /users
@@ -18,9 +18,9 @@ app.use(bodyParser.json());
 app.get('/users', (req, res) => {
 	// Return an array of all the users in the database
 	User.find({}).then((users) => {
-		res.send(users);
-	});
-});
+		res.send(users)
+	})
+})
 
 /**
  * GET /users/:id
@@ -29,9 +29,9 @@ app.get('/users', (req, res) => {
 app.get('/users/:id', (req, res) => {
 	// Return an array of all the users in the database
 	User.findById(req.params.id).then((user) => {
-		res.send(user);
-	});
-});
+		res.send(user)
+	})
+})
 
 /**
  * POST /users
@@ -43,12 +43,12 @@ app.post('/users', (req, res) => {
 
 	let userData = req.body
 
-	let newUser = new User(userData);
+	let newUser = new User(userData)
 
 	newUser.save().then((userDoc) => {
-		res.send(userDoc);
-	});
-});
+		res.send(userDoc)
+	})
+})
 
 /**
  * POST /users
@@ -84,9 +84,9 @@ app.patch('/users/:id', (req,res) =>{
 	User.findOneAndUpdate({ _id: req.params.id }, {
 		$set: req.body
 	}).then(() => {
-		res.sendStatus(200);
-	});
-});
+		res.sendStatus(200)
+	})
+})
 
 /**
  * DELETE /users/:id
@@ -97,9 +97,9 @@ app.delete('/users/:id', (req,res) =>{
 	User.findOneAndRemove({
 		_id: req.params.id
 	}).then((removedUserDoc) => {
-		res.send(removedUserDoc);
-	});
-}); // Does not delete assigned projects...
+		res.send(removedUserDoc)
+	})
+}) // Does not delete assigned projects...
 
 /**
  * GET /users/:userID/projects
@@ -110,9 +110,9 @@ app.get('/users/:userId/projects', (req, res) => {
 	Project.find({
 		_userId: req.params.userId
 	}).then((projects) => {
-		res.send(projects);
-	});
-});
+		res.send(projects)
+	})
+})
 
 /**
  * GET /projects/:projectId
@@ -120,9 +120,9 @@ app.get('/users/:userId/projects', (req, res) => {
  */
 app.get('/projects/:projectId', (req, res) => {
 	Project.findById(req.params.projectId).then((project) => {
-		res.send(project);
-	});
-}); // Not using userId parameter...
+		res.send(project)
+	})
+}) // Not using userId parameter...
 
 /**
  * POST /users/:userId/projects
@@ -137,11 +137,11 @@ app.post('/users/:userId/projects', (req, res) => {
 		source: req.body.source,
 		date: req.body.date,
 		_userId: req.params.userId
-	});
+	})
 	newProject.save().then((newProjectDoc) => {
-		res.send(newProjectDoc);
-	});
-});
+		res.send(newProjectDoc)
+	})
+})
 
 /**
  * PATCH /projects/:projectId
@@ -154,9 +154,9 @@ app.patch('/projects/:projectId', (req, res) => {
 	}, {
 		$set: req.body
 	}).then(() => {
-		res.sendStatus(200);
-	});
-});
+		res.sendStatus(200)
+	})
+})
 
 /**
  * DELETE /projects/:projectId
@@ -166,10 +166,10 @@ app.delete('/projects/:projectId', (req, res) => {
 	Project.findOneAndRemove({
 		_id: req.params.projectId,
 	}).then((removedProjectDoc) => {
-		res.send(removedProjectDoc);
-	});
-});
+		res.send(removedProjectDoc)
+	})
+})
 
 app.listen(3000, () => {
-	console.log("Server is listening on port 3000");
-});
+	console.log("Server is listening on port 3000")
+})
