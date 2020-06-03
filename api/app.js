@@ -51,6 +51,31 @@ app.post('/users', (req, res) => {
 });
 
 /**
+ * POST /users
+ * Purpose: Create an user
+ */
+app.post('/login', (req, res) => {
+	// Acabou meio vertical, acho que da pra melhorar
+	let userData = req.body
+
+	User.findOne({email: userData.email}, (error, user) => {
+		if (error) {
+			console.log(error)
+		} else {
+			if (!user) {
+				res.status(401).send('Invalid email')
+			} else {
+				if (user.password !== userData.password) {
+					res.status(401).send('Invalid password')
+				} else {
+					res.status(200).send(user)
+				}
+			}
+		}
+	})
+})
+
+/**
  * PATCH /users/:id
  * Purpose: Update a specified user
  */
