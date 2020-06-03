@@ -41,10 +41,9 @@ app.post('/users', (req, res) => {
 	// Create a new user and return it back
 	// User information (fields) are passed in via the JSON request body
 
-	let newUser = new User({
-		name: req.body.name,
-		picture: req.body.picture,
-	});
+	let userData = req.body
+
+	let newUser = new User(userData);
 
 	newUser.save().then((userDoc) => {
 		res.send(userDoc);
