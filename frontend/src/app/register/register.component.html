@@ -8,30 +8,23 @@
 <body>
     <div class="formsize">
     <br>
-    <div class="field">
-        <label class="label">Nome</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Nome">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Username</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Username">
-        </div>
-      </div>
-
       <div class="field">
         <label class="label">E-mail</label>
         <div class="control">
-          <input class="input" type="text" placeholder="E-mail">
+          <input [(ngModel)]="registerUserData.email" name="email" class="input" type="text" placeholder="E-mail">
         </div>
-      </div>      
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input [(ngModel)]="registerUserData.password" name="password" class="input" type="text" placeholder="Senha">
+        </div>
+      </div>
               
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-link">Submit</button>
+          <button (click)="registerUser()" class="button is-link">Submit</button>
         </div>
         <div class="control">
           <button class="button is-link is-light">Cancel</button>
