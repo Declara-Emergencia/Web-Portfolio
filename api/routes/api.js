@@ -1,8 +1,8 @@
 const express = require('express');
+const jwt = require('jsonwebtoken')
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../db/models/user.model');
-const jwt = require('jsonwebtoken')
 const db = "mongodb://testuser:testpw@ds123136.mlab.com:23136/eventsdb";
 // mongoose.Promise = global.Promise;
 
@@ -45,7 +45,9 @@ router.post('/login', (req, res) => {
                     res.status(401).send('invalid password')
                 }
                 else{
-                    res.status(200).send(user)
+                    let payload = { subject: user._id }
+                    let token = jwt.sign(payload, 'secretKey')
+                    res.status(200).send({token})
                 }
             }
         }
@@ -59,8 +61,9 @@ router.post('/register', (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            //user.remove(({ "_id": { "$oid": "5ed88e0d06d3692608ff94ae" } }));
-            res.status(200).send(registeredUser)
+            let payload = { subject: registeredUser._id}
+            let token = jwt.sign(payload, 'secretKey')
+            res.status(200).send({token})
         }
     })
 })  
