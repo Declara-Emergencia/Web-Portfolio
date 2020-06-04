@@ -29,6 +29,29 @@ router.get('/', (req, res) => {
     res.send('From API route')
 })
 
+router.post('/login', (req, res) => {
+    let userData = req.body
+
+    User.findOne({email: userData.email}, (error, user) => {
+        if (error){
+            console.log(error);
+        }
+        else{
+            if(!user){
+                res.status(401).send('invalid email')
+            }
+            else{
+                if(user.password != userData.password){
+                    res.status(401).send('invalid password')
+                }
+                else{
+                    res.status(200).send(user)
+                }
+            }
+        }
+    })
+})
+
 router.post('/register', (req, res) => {
     let userData = req.body
     let user = new User(userData)
