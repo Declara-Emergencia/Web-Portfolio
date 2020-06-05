@@ -35,7 +35,7 @@
           Home
         </a>
   
-        <a class="navbar-item" routerLink="/profile">
+        <a class="navbar-item" *ngIf="_authService.loggedIn()" routerLink="/profile">
           Profile
         </a>
       </div>
@@ -43,11 +43,14 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" routerLink="/register">
+            <a class="button is-primary" *ngIf="!_authService.loggedIn()" routerLink="/register">
               <strong>Register</strong>
             </a>
-            <a class="button is-light" routerLink="/login">
+            <a class="button is-light" *ngIf="!_authService.loggedIn()" routerLink="/login">
               Log in
+            </a>
+            <a class="button is-light" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">
+              Log out
             </a>
           </div>
         </div>

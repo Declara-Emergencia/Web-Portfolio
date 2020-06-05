@@ -17,4 +17,18 @@ export class AuthService {
   loginUser(user){
     return this.http.post<any>(this._loginUrl, user)
   }
+
+  //return boolean if token exists in browser
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+    this._router.navigate(['/home'])
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
+  }
 }
