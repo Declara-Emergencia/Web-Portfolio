@@ -6,6 +6,30 @@
     <title>Sign-In</title>
 </head>
 <body>
-    <p>login works!</p>
+    <div class="formsize">
+        <br>
+        <div class="field">
+            <label class="label">E-mail</label>
+            <div class="control">
+                <input [(ngModel)]="loginUserData.email" name="email" class="input" type="text" placeholder="E-mail">
+            </div>
+        </div>
+    
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input [(ngModel)]="loginUserData.password" name="password" class="input" type="password" placeholder="Senha">
+            </div>
+        </div>
+    
+        <div class="field is-grouped">
+            <div class="control">
+                <button (click)="loginUser()" class="button is-link">Login</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
