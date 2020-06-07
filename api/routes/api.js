@@ -45,6 +45,13 @@ router.get('/users', (req, res) => {
     });
 });
 
+router.get('/user/:id', (req, res) => {
+
+    User.findOne({_id: req.params.id}).then((user) => {
+        res.send(user);
+    })
+})
+
 router.get('/', (req, res) => {
     res.send('From API route')
 })
