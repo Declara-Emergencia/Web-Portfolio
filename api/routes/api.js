@@ -106,7 +106,28 @@ router.post('/register', (req, res) => {
             }
         }
     })
-})  
+})
+
+router.post('/registerproject', (req, res) => {
+    let projectData = req.body
+    let nproject = new Project(projectData)
+
+    nproject.save((err) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.status(200)
+        }
+    })
+})
+
+router.get('/user/:userId/projects', (req,res) => {
+    Project.find({
+        _userId: req.params.userId
+    }).then((projects) => {
+        res.send(projects)
+    })
+})
 
 router.delete("/user/:id", function (req, res) {
     User.findByIdAndRemove(req.params.id, function (err, deletedUser) {
