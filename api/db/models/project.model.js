@@ -15,19 +15,19 @@ const ProjectSchema = new mongoose.Schema({
     },
     thumbnail: { // Storing the path of an image file, there may be a better way to do this
         type: String,
-        required: true,
+        required: false,
         minlength: 1,
         trim: true
     },
     source: {
         type: String,
-        required: true,
+        required: false,
         minlength: 1,
         trim: true
     },
     date: {
         type: Date,
-        required: true
+        required: false
     },
     _userId: {
         type: mongoose.Types.ObjectId,
