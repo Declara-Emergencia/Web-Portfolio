@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Projeto</title>
+</head>
+<body>
+    <div class="formsize">
+    <br>
+      <div class="field">
+        <label class="label">Título</label>
+        <div class="control">
+          <input [(ngModel)]="projectData.title" name="name" class="input" type="text" placeholder="Título">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Descrição</label>
+        <div class="control">
+          <input [(ngModel)]="projectData.description" name="description" class="input" type="text" placeholder="Descrição">
+        </div>
+      </div>
+              
+      <div class="field is-grouped">
+        <div class="control">
+          <button (click)="addProject()" class="button is-link">Register</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
