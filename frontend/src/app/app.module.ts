@@ -12,7 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AddProjectComponent } from './add-project/add-project.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TokenInterceptorService } from './token-interceptor.service'
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,

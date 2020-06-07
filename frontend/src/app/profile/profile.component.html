@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="column">
-                    <div class="notification">
+                    <div class="notification" *ngFor="let project of projects">
                         <div class="columns">
                             <div class="column is-one-third">
                                 <figure class="image" style="max-width: 600px;">
@@ -91,11 +91,9 @@
                             </div>
                             
                             <div class="column">
-                                <p class="subtitle is-4"><strong>*Título do Projeto*</strong></p>
+                                <p class="subtitle is-4"><strong>{{project.title}}</strong></p>
 
-                                <p class="has-text-justified">*Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere culpa omnis enim
-                                    magni repudiandae aliquam? Itaquedebitis est nisi qui! Sunt atque in aut inventore laboriosam
-                                    facilis sapiente explicabo. Accusamus. lorem*</p>
+                                <p class="has-text-justified">{{project.description}}</p>
                                 <br>
                                 <div class="columns is-flex">
                                     <div class="column">

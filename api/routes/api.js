@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../db/models/user.model');
+const Project = require('../db/models/project.model');
 const db = "mongodb://localhost:27017/webportfolio";
 // mongoose.Promise = global.Promise;
 
@@ -108,15 +109,19 @@ router.post('/register', (req, res) => {
     })
 })
 
-router.post('/registerproject', (req, res) => {
+router.post('/user/:userId/add-project', (req, res) => {
     let projectData = req.body
-    let nproject = new Project(projectData)
+    let nproject = new Project({
+        title: projectData.title,
+        description: projectData.description,
+        _userId: req.params.userId
+    })
 
     nproject.save((err) => {
         if (err) {
             console.log(err)
         } else {
-            res.status(200)
+            res.status(200).send(nproject)
         }
     })
 })

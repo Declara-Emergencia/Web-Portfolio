@@ -5,15 +5,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile/:id/add-project', component: AddProjectComponent },
   { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
 
-  { path: '**', redirectTo: '' }
+  //{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({

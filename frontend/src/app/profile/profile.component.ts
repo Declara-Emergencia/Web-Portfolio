@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProfileComponent implements OnInit {
   user_id: string;
   user;
+  projects;
 
   constructor(private actRoute: ActivatedRoute, private http: HttpClient) {
     this.user_id = this.actRoute.snapshot.params.id;
@@ -18,6 +19,11 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<any>('http://localhost:3000/api/user/' + this.user_id).subscribe(user => {
             this.user = user;
+        })
+
+    this.http.get<any>('http://localhost:3000/api/user/' + this.user_id + '/projects')
+        .subscribe(projects => {
+            this.projects = projects;
         })
   }
 
