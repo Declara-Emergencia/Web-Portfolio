@@ -35,7 +35,7 @@
           Home
         </a>
   
-        <a class="navbar-item" *ngIf="_authService.loggedIn()" routerLink="/profile">
+        <a class="navbar-item" *ngIf="_authService.loggedIn()" [routerLink]="['/profile', logged_user_id]">
           Profile
         </a>
       </div>

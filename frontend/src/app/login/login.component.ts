@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
         res => {
           console.log(res)
           localStorage.setItem('token', res.token)
-          this._router.navigate(['/profile'])
+          this._auth.setLoggedUserId(res.user._id)
+          this._router.navigate(['/profile', res.user._id])
         },
         err => console.log(err)
       )
