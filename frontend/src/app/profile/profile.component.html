@@ -116,7 +116,7 @@
                     <!--projeto seguinte aqui-->
                 </div>
             </div>
-            <a class="button is-primary" [routerLink]="['edit-profile']">
+            <a class="button is-primary" [routerLink]="['edit-profile']" *ngIf="this.user_id === logged_user_id">
                 <strong>Edit</strong>
             </a>
         </div>

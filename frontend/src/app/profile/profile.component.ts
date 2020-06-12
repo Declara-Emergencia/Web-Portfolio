@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   user;
   projects;
 
-  constructor(private actRoute: ActivatedRoute, private http: HttpClient) {
+  constructor(private actRoute: ActivatedRoute, private http: HttpClient, public _authService: AuthService) {
     this.user_id = this.actRoute.snapshot.params.id;
    }
 
@@ -27,4 +28,7 @@ export class ProfileComponent implements OnInit {
         })
   }
 
+  public get logged_user_id(): string {
+    return this._authService.loggedUserId;
+  }
 }
