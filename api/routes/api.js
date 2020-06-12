@@ -145,4 +145,10 @@ router.delete("/user/:id", function (req, res) {
     });
 });
 
+router.put('/user/:id', function (req, res, next){
+    User.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true}).then(function(user){
+        res.send(user);
+    });
+});
+
 module.exports = router;

@@ -13,7 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
-import { AddProjectComponent } from './add-project/add-project.component'
+import { AddProjectComponent } from './add-project/add-project.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddProjectComponent } from './add-project/add-project.component'
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

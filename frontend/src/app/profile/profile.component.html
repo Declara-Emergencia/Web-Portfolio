@@ -25,26 +25,25 @@
                         
                         <div class="card-image has-text-centered">
                             <figure class="image is-128x128 is-inline-block">
-                                <img class="is-rounded" src="../../assets/pfp.png" />
+                                <img class="is-rounded" src="{{user.picture}}" />
                             </figure>
                         </div>
-                        
                         <p class="title has-text-centered ">{{user.name}}</p>
 
                         <div class="card-image has-text-centered">
                             <div class="columns is-inline-flex">
                                 <div class="column">
-                                    <a class="image is-48x48" href="https://www.linkedin.com/" target="_blank">
+                                    <a class="image is-48x48" href={{user.linkLink}} target="_blank">
                                         <img src="../../assets/logoLinkedin.png">
                                     </a>
                                 </div>
                                 <div class="column">
-                                    <a class="image is-48x48" href="https://github.com/Declara-Emergencia" target="_blank">
+                                    <a class="image is-48x48" href={{user.linkGit}} target="_blank">
                                         <img src="../../assets/logoGithub.png">
                                     </a>
                                 </div>
                                 <div class="column">
-                                    <a class="image is-48x48" href="https://www.google.com/intl/pt/gmail/about/#" target="_blank">
+                                    <a class="image is-48x48" href = "mailto: {{user.email}}" target="_blank">
                                         <img src="../../assets/logoGmail.png">
                                     </a>
                                 </div>
@@ -57,25 +56,28 @@
                             <p class="is-marginless subtitle is-5"><strong>Client-Side:</strong></p>
                             <div class="sideicon">
                                 <span><i class="fas fa-code"></i></span>
-                                <span><p>&nbsp;*HTML5, Sass, Angular*</p></span>
+                                <!--<span><p>&nbsp;*HTML5, Sass, Angular*</p></span>-->
+                                <span>
+                                    <p>&nbsp;{{user.descriptionCS}}</p>
+                                </span>
                             </div>
                             <br>
                             <p class="is-marginless subtitle is-5"><strong>Server-Side:</strong></p>
                             <div class="sideicon">
                                 <span><i class="fas fa-server"></i></span>
-                                <span><p>&nbsp;*NodeJS, ExpressJS*</p></span>
+                                <span><p>&nbsp;{{user.descriptionSS}}</p></span>
                             </div>
                             <br>
                             <p class="is-marginless subtitle is-5"><strong>Database:</strong></p>
                             <div class="sideicon">
                                 <span><i class="fas fa-database"></i></span>
-                                <span><p>&nbsp;*SQL Server, MongoDB*</p></span>
+                                <span><p>&nbsp;{{user.descriptionDB}}</p></span>
                             </div>
                             <br>
                             <p class="is-marginless subtitle is-5"><strong>Other:</strong></p>
                             <div class="sideicon">
                                 <span><i class="fas fa-plus-square"></i></span>
-                                <span><p>&nbsp;*C#, Arduino, Python*</p></span>
+                                <span><p>&nbsp;{{user.descriptionOth}}</p></span>
                             </div>
                         </div>
                     </div>
@@ -114,6 +116,9 @@
                     <!--projeto seguinte aqui-->
                 </div>
             </div>
+            <a class="button is-primary" [routerLink]="['edit-profile']">
+                <strong>Edit</strong>
+            </a>
         </div>
     </section>
 </div>

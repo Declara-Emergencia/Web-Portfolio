@@ -19,7 +19,37 @@ const userSchema = new mongoose.Schema({
         minlength: 1,
         trim: true
     },
-    description: {
+    descriptionCS: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    descriptionSS: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    descriptionDB: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    descriptionOth: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    linkGit: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    linkLink: {
         type: String,
         required: false,
         minlength: 1,
