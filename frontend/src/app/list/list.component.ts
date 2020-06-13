@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListComponent implements OnInit {
   users;
+  searchText = '';
 
   constructor(private http: HttpClient) { }
 
