@@ -7,12 +7,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ListComponent } from './list/list.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'list', component: ListComponent },
   { path: 'profile/:id/add-project', component: AddProjectComponent },
   { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'profile/:id/edit-profile', component: EditProfileComponent}

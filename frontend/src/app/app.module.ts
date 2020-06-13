@@ -14,7 +14,8 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AddProjectComponent } from './add-project/add-project.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component'
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ListComponent } from './list/list.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component'
     RegisterComponent,
     ProfileComponent,
     AddProjectComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
