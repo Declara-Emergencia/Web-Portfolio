@@ -80,10 +80,15 @@
                                         </figure>
                                     </div>
                                     <div class="column">
+                                            <p><i>Título:</i></p>
                                             <input class="input" type="text" [(ngModel)]="project.title" #description="ngModel" required
                                             placeholder="Título">
+                                            <p><i>Descrição:</i></p>
                                             <input class="input" type="text" [(ngModel)]="project.description" #description="ngModel" required
-                                            placeholder="Descrição">                              
+                                            placeholder="Descrição">  
+                                            <p><i>Data do Projeto:</i></p>    
+                                            <input class="input" type="date" [(ngModel)]="project.date" #description="ngModel" required
+                                            placeholder="Data">                          
                                         <br>
                                         <div class="columns is-flex">
                                             <div class="column">

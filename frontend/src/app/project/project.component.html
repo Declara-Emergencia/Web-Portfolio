@@ -80,13 +80,15 @@
                                         </figure>
                                     </div>
                                     <div class="column">
+                                            <p><i>Título:</i></p>
                                             <p class="subtitle is-4"><strong>{{project.title}}</strong></p>
-                                            <p class="has-text-justified">{{project.description}}</p>                               
+                                            <p><i>Descrição:</i></p>
+                                            <p class="has-text-justified"><strong>{{project.description}}</strong></p>                               
                                         <br>
                                         <div class="columns is-flex">
                                             <div class="column">
-                                                <br>
-                                                <p class="has-text-right"><i>Data do Projeto: *20/04/2020*</i></p>
+                                                <p><i>Data do Projeto:</i></p>
+                                                <p class="has-text-justified"><strong>{{project.date}}</strong></p> 
                                                 <br> <br> <br>
                                             </div>
                                             <div class="column is-one-fifth">
@@ -100,9 +102,16 @@
                                     </div>
                                 </div>
                             </div> 
-                            <a class="button is-primary" [routerLink]="['edit-project']" *ngIf="this.user_id === logged_user_id">
-                                <strong>Edit</strong>
-                            </a>      
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-primary"[routerLink]="['edit-project']" *ngIf="this.user_id === logged_user_id">
+                                        <strong> Edit </strong>
+                                    </button>
+                                </div>
+                                <div class="control" [routerLink]="['..']">
+                                    <button class="button is-primary">Voltar</button>
+                                </div>
+                            </div>
                     </div>  
             </div>
         </div>

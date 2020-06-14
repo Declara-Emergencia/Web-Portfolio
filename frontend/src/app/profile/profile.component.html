@@ -86,9 +86,20 @@
                                 <div class="columns is-flex">
                                     <div class="column">
                                         <br>
-                                        <p class="has-text-right"><i>Data do Projeto: *20/04/2020*</i></p>
-                                        <br> <br> <br>
-                                        <p class="has-text-right"><i class="fas fa-info-circle" (click)="editProject(project._id)">&nbsp;</i><i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(project._id)"></i></p>
+                                        <p class="has-text-right"><i>Data do Projeto: {{project.date}}</i></p>
+                                        <br> 
+                                        <div class="has-text-right">
+                                            <div class="field is-grouped">
+                                                <div class="control">
+                                                    <button class="button is-primary" (click)="editProject(project._id)" >
+                                                        <strong> Info </strong>
+                                                    </button>
+                                                </div>
+                                                <div class="control">
+                                                    <button class="button is-link is-danger" (click)="onDelete(project._id)" *ngIf="this.user_id === logged_user_id">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="column is-one-fifth">
                                         <figure class="image has-text-right">
