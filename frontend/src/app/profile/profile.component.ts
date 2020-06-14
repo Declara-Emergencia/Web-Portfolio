@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
@@ -12,8 +12,13 @@ export class ProfileComponent implements OnInit {
   user_id: string;
   user;
   projects;
+  project;
 
-  constructor(private actRoute: ActivatedRoute, private http: HttpClient, public _authService: AuthService) {
+  constructor(private actRoute: ActivatedRoute, 
+    private route: Router,
+    private http: HttpClient, 
+    public _authService: AuthService) {
+
     this.user_id = this.actRoute.snapshot.params.id;
    }
 
@@ -26,6 +31,16 @@ export class ProfileComponent implements OnInit {
         .subscribe(projects => {
             this.projects = projects;
         })
+  }
+
+  editProject(idP){
+    this.route.navigate(['/profile/' + this.user_id + '/project/' + idP])
+  }
+
+  onDelete(idP){
+    this.http.delete<any>('http://localhost:3000/api/project/' + idP).subscribe(project => {
+      this.project = project;
+    })
   }
 
   public get logged_user_id(): string {

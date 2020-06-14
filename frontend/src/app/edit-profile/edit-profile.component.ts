@@ -28,8 +28,8 @@ export class EditProfileComponent implements OnInit {
 
   patch(user){
     //return this.http.put<any>('http://localhost:3000/api/user/' + this.user_id, user);
-    this.http.put<any>('http://localhost:3000/api/user/' + this.user_id, user).subscribe(user => {
-      this.user = user;
+    this.http.put<any>('http://localhost:3000/api/user/' + this.user_id, user).subscribe(usere => {
+      this.user = usere;
       this._router.navigate(['/profile', this.user_id])
     })
   }

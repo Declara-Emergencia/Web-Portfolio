@@ -25,17 +25,9 @@ export class AddProjectComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res)
+        this._router.navigate(['profile/'+ this.user_id])
       },
       err => console.log(err)
     )
-    /*this._auth.registerUser(this.projectData)
-      .subscribe(
-        res => {
-          console.log(res)
-          localStorage.setItem('token', res.token)
-          this._router.navigate(['/profile'])
-        },
-        err => console.log(err)
-      )*/
   }
 }

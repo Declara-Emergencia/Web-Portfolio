@@ -72,39 +72,38 @@
                 </div>
 
                 <div class="column">
-                    <div class="notification" *ngFor="let project of projects">
-                        <div class="columns">
-                            <div class="column is-one-third">
-                                <figure class="image" style="max-width: 600px;">
-                                    <img src="../../assets/projPa3.jpg">
-                                </figure>
-                            </div>
-                            <div class="column">
-                                <p class="subtitle is-4"><strong>{{project.title}}</strong></p>
-                                <p class="has-text-justified">{{project.description}}</p>
-                                <br>
-                                <div class="columns is-flex">
-                                    <div class="column">
-                                        <br>
-                                        <p class="has-text-right"><i>Data do Projeto: *20/04/2020*</i></p>
-                                        <br> <br> <br>
-                                        <p class="has-text-right"><i class="fas fa-info-circle" (click)="editProject(project._id)">&nbsp;</i><i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(project._id)"></i></p>
-                                    </div>
-                                    <div class="column is-one-fifth">
-                                        <figure class="image has-text-right">
-                                            <a class="image is-48x48" href="https://github.com/Declara-Emergencia/Web-Portfolio" target="_blank">
-                                                <img src="../../assets/logoGithub.png">
-                                            </a>
+                            <div class="notification">
+                                <div class="columns">
+                                    <div class="column is-one-third">
+                                        <figure class="image" style="max-width: 600px;">
+                                            <img src="../../assets/projPa3.jpg">
                                         </figure>
                                     </div>
+                                    <div class="column">
+                                            <p class="subtitle is-4"><strong>{{project.title}}</strong></p>
+                                            <p class="has-text-justified">{{project.description}}</p>                               
+                                        <br>
+                                        <div class="columns is-flex">
+                                            <div class="column">
+                                                <br>
+                                                <p class="has-text-right"><i>Data do Projeto: *20/04/2020*</i></p>
+                                                <br> <br> <br>
+                                            </div>
+                                            <div class="column is-one-fifth">
+                                                <figure class="image has-text-right">
+                                                    <a class="image is-48x48" href="https://github.com/Declara-Emergencia/Web-Portfolio" target="_blank">
+                                                        <img src="../../assets/logoGithub.png">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="button is-primary" [routerLink]="['add-project']" *ngIf="this.user_id === logged_user_id">
-                        <strong>+ Projeto</strong>
-                    </a>               
-                </div>
+                            </div> 
+                            <a class="button is-primary" [routerLink]="['edit-project']" *ngIf="this.user_id === logged_user_id">
+                                <strong>Edit</strong>
+                            </a>      
+                    </div>  
             </div>
         </div>
     </section>

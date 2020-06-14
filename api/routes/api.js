@@ -53,6 +53,13 @@ router.get('/user/:id', (req, res) => {
     })
 })
 
+router.get('/project/:id', (req, res) => {
+
+    Project.findOne({_id: req.params.id}).then((project) => {
+        res.send(project);
+    })
+})
+
 router.get('/', (req, res) => {
     res.send('From API route')
 })
@@ -145,9 +152,26 @@ router.delete("/user/:id", function (req, res) {
     });
 });
 
+router.delete("/project/:projectId", function (req, res) {
+    Project.findByIdAndRemove(req.params.projectId, function (err, deletedProject) {
+        if(err){
+            res.send("error deleting project");
+        }
+        else{
+            res.json(deletedProject);
+        }
+    });
+});
+
 router.put('/user/:id', function (req, res, next){
     User.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true}).then(function(user){
         res.send(user);
+    });
+});
+
+router.put('/project/:projectId', function (req, res, next){
+    Project.findByIdAndUpdate({ _id: req.params.projectId }, req.body, {new: true}).then(function(project){
+        res.send(project);
     });
 });
 
