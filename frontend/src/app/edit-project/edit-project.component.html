@@ -66,49 +66,52 @@
                                 <span><p><i class="fas fa-plus-square"></i>&nbsp;{{user.descriptionOth}}</p></span>
                         </div>
                     </div>
-                    <a class="button is-primary" [routerLink]="['edit-profile']" *ngIf="this.user_id === logged_user_id">
-                        <strong>Edit</strong>
-                    </a>
                 </div>
 
                 <div class="column">
-                            <div class="notification">
-                                <div class="columns">
-                                    <div class="column is-one-third">
-                                        <figure class="image" style="max-width: 600px;">
-                                            <img src="../../assets/projPa3.jpg">
-                                        </figure>
-                                    </div>
+                    <div class="notification">
+                        <div class="columns">
+                            <div class="column is-one-third">
+                                <figure class="image" style="max-width: 600px;">
+                                    <img src="{{project.thumbnail}}">
+                                </figure>
+                            </div>
+                            <div class="column">
+                                    <p><i>Título:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.title" #description="ngModel" required
+                                    placeholder="Título">
+                                    <p><i>Descrição:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.description" #description="ngModel" required
+                                    placeholder="Descrição">  
+                                    <p><i>Data do Projeto:</i></p>    
+                                    <input class="input" type="date" [(ngModel)]="project.date" #description="ngModel" required
+                                    placeholder="Data">
+                                    <p><i>Código Fonte:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.source" #description="ngModel" required 
+                                    placeholder="URL Source Code">
+                                    <p><i>Imagem:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.thumbnail" #description="ngModel" required
+                                        placeholder="URL da imagem">
+                                <br>
+                                <div class="columns is-flex">
                                     <div class="column">
-                                            <p><i>Título:</i></p>
-                                            <input class="input" type="text" [(ngModel)]="project.title" #description="ngModel" required
-                                            placeholder="Título">
-                                            <p><i>Descrição:</i></p>
-                                            <input class="input" type="text" [(ngModel)]="project.description" #description="ngModel" required
-                                            placeholder="Descrição">  
-                                            <p><i>Data do Projeto:</i></p>    
-                                            <input class="input" type="date" [(ngModel)]="project.date" #description="ngModel" required
-                                            placeholder="Data">                          
                                         <br>
-                                        <div class="columns is-flex">
-                                            <div class="column">
-                                                <br>
-                                                <div class="field is-grouped">
-                                                    <div class="control">
-                                                        <button class="button is-link" (click)="patch(project)">
-                                                            <strong> Save </strong>
-                                                        </button>
-                                                    </div>
-                                                    <div class="control" [routerLink]="['..']">
-                                                        <button class="button is-link is-light">Cancel</button>
-                                                    </div>
-                                                </div>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <button class="button is-link" (click)="patch(project)">
+                                                    <strong> Save </strong>
+                                                </button>
+                                            </div>
+                                            <div class="control" routerLink="/..">
+                                                <button class="button is-link is-light">Cancel</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>    
-                    </div>  
+                            </div>
+                        </div>
+                    </div>    
+                </div>  
             </div>
         </div>
     </section>

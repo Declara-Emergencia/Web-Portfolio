@@ -41,6 +41,7 @@ export class ProfileComponent implements OnInit {
     this.http.delete<any>('http://localhost:3000/api/project/' + idP).subscribe(project => {
       this.project = project;
     })
+    this.route.navigate(['/'])
   }
 
   public get logged_user_id(): string {

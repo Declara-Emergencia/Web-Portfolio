@@ -66,9 +66,6 @@
                                 <span><p><i class="fas fa-plus-square"></i>&nbsp;{{user.descriptionOth}}</p></span>
                         </div>
                     </div>
-                    <a class="button is-primary" [routerLink]="['edit-profile']" *ngIf="this.user_id === logged_user_id">
-                        <strong>Edit</strong>
-                    </a>
                 </div>
 
                 <div class="column">
@@ -76,7 +73,7 @@
                                 <div class="columns">
                                     <div class="column is-one-third">
                                         <figure class="image" style="max-width: 600px;">
-                                            <img src="../../assets/projPa3.jpg">
+                                            <img src="{{project.thumbnail}}">
                                         </figure>
                                     </div>
                                     <div class="column">
@@ -93,7 +90,7 @@
                                             </div>
                                             <div class="column is-one-fifth">
                                                 <figure class="image has-text-right">
-                                                    <a class="image is-48x48" href="https://github.com/Declara-Emergencia/Web-Portfolio" target="_blank">
+                                                    <a class="image is-48x48" href="{{project.source}}" target="_blank">
                                                         <img src="../../assets/logoGithub.png">
                                                     </a>
                                                 </figure>
@@ -108,7 +105,7 @@
                                         <strong> Edit </strong>
                                     </button>
                                 </div>
-                                <div class="control" [routerLink]="['..']">
+                                <div class="control" [routerLink]="['/profile', logged_user_id]">
                                     <button class="button is-primary">Voltar</button>
                                 </div>
                             </div>

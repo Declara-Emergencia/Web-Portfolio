@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-project.component.scss']
 })
 export class AddProjectComponent implements OnInit {
-  projectData = { title: '', description: ''};
+  projectData = { title: '', description: '', thumbnail: 'https://imgur.com/QlIhCul.png'};
   user_id: string;
 
   constructor(private _router: Router,
