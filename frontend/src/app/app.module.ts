@@ -12,7 +12,12 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ListComponent } from './list/list.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { ProjectComponent } from './project/project.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { TokenInterceptorService } from './token-interceptor.service'
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddProjectComponent,
+    EditProfileComponent,
+    ListComponent,
+    EditProjectComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

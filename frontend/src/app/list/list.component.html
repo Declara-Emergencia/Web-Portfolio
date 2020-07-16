@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos Usuários</title>
+</head>
+<body>
+    <div class="pagesize">
+        <section class="section">
+            <div class="container">
+                
+                <div class="search-hero">
+                    <input class="input" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                        placeholder="Search Competência">
+                </div>
+                <br>
+
+                <div class="notification" *ngFor="let user of users">
+                    <ng-container *ngIf="searchText == '' || user.descriptionCS === searchText || 
+                    user.descriptionSS === searchText || user.descriptionDB === searchText || 
+                    user.descriptionOth === searchText || user.name === searchText">
+                        <div class="columns">
+
+                            <div class="column is-one-third">
+                                <p class="subtitle is-6">Usuário:</p>
+                                <hr class="has-background-grey-lighter">
+                                <div class="card-image has-text-centered">
+                                    <figure class="image is-128x128 is-inline-block">
+                                        <img class="is-rounded" src="{{user.picture}}" />
+                                    </figure>
+                                </div>
+                                <p class="title has-text-centered ">{{user.name}}</p>
+                            </div>
+
+                            <div class="column is-one-third">
+                                <p class="subtitle is-6">Competências:</p>
+                                <hr class="has-background-grey-lighter">
+
+                                <p class="is-marginless subtitle is-6"><strong>Client-Side:</strong></p>
+                                <span> <p>&nbsp;{{user.descriptionCS}}</p> </span>
+
+                                <p class="is-marginless subtitle is-6"><strong>Server-Side:</strong></p>
+                                <span> <p>&nbsp;{{user.descriptionSS}}</p> </span>
+
+                                <p class="is-marginless subtitle is-6"><strong>Database:</strong></p>
+                                <span> <p>&nbsp;{{user.descriptionDB}}</p> </span>
+
+                                <p class="is-marginless subtitle is-6"><strong>Other:</strong></p>
+                                <span> <p>&nbsp;{{user.descriptionOth}}</p> </span>
+                            </div>
+
+                            <div class="column is-one-third">
+                                <p class="subtitle is-6">Acessar:</p>
+                                <hr class="has-background-grey-lighter">
+                                <a class="button is-primary" routerLink="/profile/{{user._id}}">
+                                    Visit Profile
+                                </a>
+                            </div>
+
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

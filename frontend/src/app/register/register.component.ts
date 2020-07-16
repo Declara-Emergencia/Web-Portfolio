@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service'
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = { email: '', password: ''};
+  registerUserData = { email: '', password: '', name: '', picture: 'https://imgur.com/sKBghce.png'};
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
         res => {
           console.log(res)
           localStorage.setItem('token', res.token)
-          this._router.navigate(['/profile'])
+          this._auth.setLoggedUserId(res.user._id)
+          this._router.navigate(['/profile', res.user._id])
         },
         err => console.log(err)
       )

@@ -15,11 +15,41 @@ const userSchema = new mongoose.Schema({
     },
     name: {
         type: String,
+        required: true,
+        minlength: 1,
+        trim: true
+    },
+    descriptionCS: {
+        type: String,
         required: false,
         minlength: 1,
         trim: true
     },
-    description: {
+    descriptionSS: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    descriptionDB: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    descriptionOth: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    linkGit: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
+    },
+    linkLink: {
         type: String,
         required: false,
         minlength: 1,

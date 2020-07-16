@@ -66,13 +66,10 @@
                                 <span><p><i class="fas fa-plus-square"></i>&nbsp;{{user.descriptionOth}}</p></span>
                         </div>
                     </div>
-                    <a class="button is-primary" [routerLink]="['edit-profile']" *ngIf="this.user_id === logged_user_id">
-                        <strong>Edit</strong>
-                    </a>
                 </div>
 
                 <div class="column">
-                    <div class="notification" *ngFor="let project of projects">
+                    <div class="notification">
                         <div class="columns">
                             <div class="column is-one-third">
                                 <figure class="image" style="max-width: 600px;">
@@ -80,42 +77,41 @@
                                 </figure>
                             </div>
                             <div class="column">
-                                <p class="subtitle is-4"><strong>{{project.title}}</strong></p>
-                                <p class="has-text-justified">{{project.description}}</p>
+                                    <p><i>Título:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.title" #description="ngModel" required
+                                    placeholder="Título">
+                                    <p><i>Descrição:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.description" #description="ngModel" required
+                                    placeholder="Descrição">  
+                                    <p><i>Data do Projeto:</i></p>    
+                                    <input class="input" type="date" [(ngModel)]="project.date" #description="ngModel" required
+                                    placeholder="Data">
+                                    <p><i>Código Fonte:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.source" #description="ngModel" required 
+                                    placeholder="URL Source Code">
+                                    <p><i>Imagem:</i></p>
+                                    <input class="input" type="text" [(ngModel)]="project.thumbnail" #description="ngModel" required
+                                        placeholder="URL da imagem">
                                 <br>
                                 <div class="columns is-flex">
                                     <div class="column">
                                         <br>
-                                        <p class="has-text-right"><i>Data do Projeto: {{project.date}}</i></p>
-                                        <br> 
-                                        <div class="has-text-right">
-                                            <div class="field is-grouped">
-                                                <div class="control">
-                                                    <button class="button is-primary" (click)="editProject(project._id)" >
-                                                        <strong> Info </strong>
-                                                    </button>
-                                                </div>
-                                                <div class="control">
-                                                    <button class="button is-link is-danger" (click)="onDelete(project._id)" *ngIf="this.user_id === logged_user_id">Delete</button>
-                                                </div>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <button class="button is-link" (click)="patch(project)">
+                                                    <strong> Save </strong>
+                                                </button>
+                                            </div>
+                                            <div class="control" routerLink="/..">
+                                                <button class="button is-link is-light">Cancel</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="column is-one-fifth">
-                                        <figure class="image has-text-right">
-                                            <a class="image is-48x48" href="{{project.source}}" target="_blank">
-                                                <img src="../../assets/logoGithub.png">
-                                            </a>
-                                        </figure>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <a class="button is-primary" [routerLink]="['add-project']" *ngIf="this.user_id === logged_user_id">
-                        <strong>+ Projeto</strong>
-                    </a>               
-                </div>
+                    </div>    
+                </div>  
             </div>
         </div>
     </section>

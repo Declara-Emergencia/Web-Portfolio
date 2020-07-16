@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+</head>
+<body>
+    <div class="pagesize">
+    
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+    
+                    <div class="column is-one-third">
+                        <div class="notification">
+    
+                            <div class="card-image has-text-centered">
+                                <figure class="image is-128x128 is-inline-block">
+                                    <img class="is-rounded" src="../../assets/pfp.png" />
+                                </figure>
+                            </div>
+                            
+                            <p class="is-marginless subtitle is-5"><strong>URL Foto de Perfil:</strong></p>
+                            <span>
+                                <input class="input" type="text" [(ngModel)]="user.picture" #description="ngModel" required
+                                    placeholder="Ex: imgur.com/oU4hUb.png">
+                            </span>
+
+                            <p class="title has-text-centered ">*Nome*</p>
+                            <span>
+                                <input class="input" type="text" [(ngModel)]="user.name" #description="ngModel" required
+                                    placeholder="Ex: Guilherme de Paula">
+                            </span>
+                            <hr class="has-background-grey-lighter">
+
+                            <p class="is-marginless subtitle is-5"><strong>E-mail:</strong></p>
+                            <span>
+                                <input class="input" type="text" [(ngModel)]="user.email" #description="ngModel" required
+                                    placeholder="Ex: guilherme.macena2@etec.sp.gov.br">
+                            </span>
+
+                            <p class="is-marginless subtitle is-5"><strong>URL Perfil Github:</strong></p>
+                            <span>
+                                <input class="input" type="text" [(ngModel)]="user.linkGit" #description="ngModel" required
+                                    placeholder="Ex: github.com/guilhermemacena">
+                            </span>
+
+                            <p class="is-marginless subtitle is-5"><strong>URL Perfil Linkedin:</strong></p>
+                            <span>
+                                <input class="input" type="text" [(ngModel)]="user.linkLink" #description="ngModel" required
+                                    placeholder="Ex: linkedin.com/in/guilherme-macena-43650234/">
+                            </span>
+
+                            <hr class="has-background-grey-lighter">
+                            <p class="subtitle is-4">Experiência:</p>
+                            <div>
+                                <p class="is-marginless subtitle is-5"><strong>Client-Side:</strong></p>
+                                <div class="sideicon">
+                                    <span><i class="fas fa-code"></i></span>
+                                    <span>
+                                        <input class= "input" type="text" [(ngModel)]="user.descriptionCS" #description="ngModel" required placeholder="Ex: React, Angular, Vue">
+                                    </span>
+                                </div>
+                                <br>
+                                <p class="is-marginless subtitle is-5"><strong>Server-Side:</strong></p>
+                                <div class="sideicon">
+                                    <span><i class="fas fa-server"></i></span>
+                                    <span>
+                                        <input class="input" type="text" [(ngModel)]="user.descriptionSS" #description="ngModel" required
+                                            placeholder="Ex: NodeJS, ExpressJS">
+                                    </span>
+                                </div>
+                                <br>
+                                <p class="is-marginless subtitle is-5"><strong>Database:</strong></p>
+                                <div class="sideicon">
+                                    <span><i class="fas fa-database"></i></span>
+                                    <span>
+                                        <input class="input" type="text" [(ngModel)]="user.descriptionDB" #description="ngModel" required
+                                            placeholder="Ex: SQL Server, MongoDB">
+                                    </span>
+                                </div>
+                                <br>
+                                <p class="is-marginless subtitle is-5"><strong>Other:</strong></p>
+                                <div class="sideicon">
+                                    <span><i class="fas fa-plus-square"></i></span>
+                                    <span>
+                                        <input class="input" type="text" [(ngModel)]="user.descriptionOth" #description="ngModel" required
+                                            placeholder="Ex: C#, Arduino, Python">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" (click)="patch(user)">
+                            <strong> Save </strong>
+                        </button>
+                    </div>
+                    <div class="control" [routerLink]="['..']">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

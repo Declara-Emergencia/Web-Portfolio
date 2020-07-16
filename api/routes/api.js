@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../db/models/user.model');
+const Project = require('../db/models/project.model');
 const db = "mongodb://localhost:27017/webportfolio";
 // mongoose.Promise = global.Promise;
 
@@ -45,6 +46,20 @@ router.get('/users', (req, res) => {
     });
 });
 
+router.get('/user/:id', (req, res) => {
+
+    User.findOne({_id: req.params.id}).then((user) => {
+        res.send(user);
+    })
+})
+
+router.get('/project/:id', (req, res) => {
+
+    Project.findOne({_id: req.params.id}).then((project) => {
+        res.send(project);
+    })
+})
+
 router.get('/', (req, res) => {
     res.send('From API route')
 })
@@ -67,7 +82,7 @@ router.post('/login', (req, res) => {
                 else{
                     let payload = { subject: user._id }
                     let token = jwt.sign(payload, 'secretKey')
-                    res.status(200).send({token})
+                    res.status(200).json({ token: token, user: user })
                 }
             }
         }
@@ -93,13 +108,38 @@ router.post('/register', (req, res) => {
                     } else {
                         let payload = { subject: registeredUser._id }
                         let token = jwt.sign(payload, 'secretKey')
-                        res.status(200).send({ token })
+                        res.status(200).json({ token: token, user: registeredUser })
                     }
                 })
             }
         }
     })
-})  
+})
+
+router.post('/user/:userId/add-project', (req, res) => {
+    let projectData = req.body
+    let nproject = new Project({
+        title: projectData.title,
+        description: projectData.description,
+        _userId: req.params.userId
+    })
+
+    nproject.save((err) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.status(200).send(nproject)
+        }
+    })
+})
+
+router.get('/user/:userId/projects', (req,res) => {
+    Project.find({
+        _userId: req.params.userId
+    }).then((projects) => {
+        res.send(projects)
+    })
+})
 
 router.delete("/user/:id", function (req, res) {
     User.findByIdAndRemove(req.params.id, function (err, deletedUser) {
@@ -109,6 +149,29 @@ router.delete("/user/:id", function (req, res) {
         else{
             res.json(deletedUser);
         }
+    });
+});
+
+router.delete("/project/:projectId", function (req, res) {
+    Project.findByIdAndRemove(req.params.projectId, function (err, deletedProject) {
+        if(err){
+            res.send("error deleting project");
+        }
+        else{
+            res.json(deletedProject);
+        }
+    });
+});
+
+router.put('/user/:id', function (req, res, next){
+    User.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true}).then(function(user){
+        res.send(user);
+    });
+});
+
+router.put('/project/:projectId', function (req, res, next){
+    Project.findByIdAndUpdate({ _id: req.params.projectId }, req.body, {new: true}).then(function(project){
+        res.send(project);
     });
 });
 
